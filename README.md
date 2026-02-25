@@ -79,3 +79,14 @@ Si tu DNS no está en Cloudflare, te pedirá crear los registros necesarios (CNA
 El módulo de noticias actualmente intenta leer RSS vía proxy público (`api.allorigins.win`) y, si falla, muestra fuentes de respaldo.
 
 Para entorno profesional, conviene mover esa consulta a una **Function** de Cloudflare (server-side) con caché. Así reduces problemas de CORS o caídas del proxy.
+
+## Troubleshooting (Netlify / móvil): no aparecen los gráficos
+
+Si en móvil ves un bloque vacío donde debería ir la sección de evolución histórica:
+
+1. Abre la página en modo incógnito (para descartar bloqueadores/extensiones).
+2. Comprueba conexión de datos/WiFi (los gráficos dependen de cargar Chart.js desde CDN).
+3. Fuerza recarga completa (Ctrl+F5 o borrar caché del navegador móvil).
+4. Revisa en DevTools si hay errores de carga de CDN.
+
+La app incluye fallback de carga para Chart.js y Leaflet (CDNs alternativos) y mensaje de estado si aun así no se puede renderizar.

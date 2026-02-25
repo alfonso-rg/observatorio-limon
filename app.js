@@ -80,6 +80,66 @@ function getRecord(year) {
   return sectorData.find((r) => r.year === Number(year));
 }
 
+function setChartFallback(message) {
+  document.querySelectorAll('.chart-grid canvas').forEach((canvas) => {
+    canvas.replaceWith(Object.assign(document.createElement('div'), {
+      className: 'chart-fallback',
+      textContent: message
+    }));
+  });
+}
+
+function setMapFallback(message) {
+  const mapEl = document.getElementById('map');
+  mapEl.classList.add('map-fallback');
+  mapEl.textContent = message;
+}
+
+function loadScript(src) {
+  return new Promise((resolve, reject) => {
+    const script = document.createElement('script');
+    script.src = src;
+    script.async = true;
+    script.onload = resolve;
+    script.onerror = () => reject(new Error(`No se pudo cargar ${src}`));
+    document.head.appendChild(script);
+  });
+}
+
+async function ensureChartLib() {
+  if (window.Chart) return true;
+  const sources = [
+    'https://cdn.jsdelivr.net/npm/chart.js@4.4.2/dist/chart.umd.min.js',
+    'https://unpkg.com/chart.js@4.4.2/dist/chart.umd.min.js'
+  ];
+  for (const src of sources) {
+    try {
+      await loadScript(src);
+      if (window.Chart) return true;
+    } catch (_error) {
+      // try next source
+    }
+  }
+  return false;
+}
+
+async function ensureLeafletLib() {
+  if (window.L) return true;
+  const sources = [
+    'https://unpkg.com/leaflet@1.9.4/dist/leaflet.js',
+    'https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.js'
+  ];
+  for (const src of sources) {
+    try {
+      await loadScript(src);
+      if (window.L) return true;
+    } catch (_error) {
+      // try next source
+    }
+  }
+  return false;
+}
+
 function renderKpis(year) {
   const record = getRecord(year);
   const base = getRecord(2004);
@@ -113,7 +173,6 @@ function initCharts() {
 
   const commonOptions = {
     responsive: true,
-    maintainAspectRatio: false,
     plugins: { legend: { position: 'top' } }
   };
 
@@ -186,7 +245,7 @@ async function loadNews() {
       .join('');
 
     status.textContent = 'Noticias actualizadas';
-  } catch (error) {
+  } catch (_error) {
     list.innerHTML = fallbackNews
       .map((n) => `<li><a href="${n.url}" target="_blank" rel="noopener noreferrer">${n.title}</a><p>${n.source}</p></li>`)
       .join('');
@@ -201,11 +260,35 @@ function syncYear() {
   renderYearFacts(year);
 }
 
-yearInput.addEventListener('input', syncYear);
-document.getElementById('refreshNews').addEventListener('click', loadNews);
+async function bootstrap() {
+  yearInput.addEventListener('input', syncYear);
+  document.getElementById('refreshNews').addEventListener('click', loadNews);
 
-syncYear();
-initCharts();
-initMap();
-renderPlans();
-loadNews();
+  syncYear();
+  renderPlans();
+  loadNews();
+
+  const chartReady = await ensureChartLib();
+  if (chartReady) {
+    try {
+      initCharts();
+    } catch (_error) {
+      setChartFallback('No se pudieron renderizar los gráficos en este dispositivo. Revisa conexión o bloqueadores de contenido.');
+    }
+  } else {
+    setChartFallback('No se pudo cargar la librería de gráficos (Chart.js). Comprueba conexión o bloqueadores de contenido.');
+  }
+
+  const mapReady = await ensureLeafletLib();
+  if (mapReady) {
+    try {
+      initMap();
+    } catch (_error) {
+      setMapFallback('No se pudo inicializar el mapa en este dispositivo.');
+    }
+  } else {
+    setMapFallback('No se pudo cargar la librería de mapas (Leaflet).');
+  }
+}
+
+bootstrap();

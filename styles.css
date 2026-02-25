@@ -62,6 +62,26 @@ canvas {
   border: 1px solid #e8eeea;
   border-radius: 12px;
   padding: 0.7rem;
+  min-height: 260px;
+  max-height: 320px;
+}
+.chart-fallback {
+  border: 1px dashed #c5d2cb;
+  border-radius: 12px;
+  min-height: 260px;
+  display: grid;
+  place-items: center;
+  text-align: center;
+  color: var(--muted);
+  background: #fbfcfb;
+  padding: 1rem;
+}
+.map-fallback {
+  display: grid;
+  place-items: center;
+  color: var(--muted);
+  text-align: center;
+  padding: 1rem;
 }
 .split {
   display: grid;
