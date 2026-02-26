@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mapa del Limón en Murcia</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="hero">
+      <div class="container">
+        <p class="eyebrow">Territorio y geografía productiva</p>
+        <h1>Mapa interactivo del limón en Murcia</h1>
+        <p>Vista sobre Google Maps para ubicar la Región de Murcia y sus comarcas limoneras principales.</p>
+        <nav class="top-nav">
+          <a href="index.html">Inicio</a>
+          <a href="precios.html">Precios</a>
+          <a href="evolucion.html">Evolución</a>
+          <a class="active" href="mapa.html">Mapa</a>
+          <a href="historia.html">Historia</a>
+          <a href="juegos.html">Juegos</a>
+          <a href="fuentes.html">Fuentes</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="container">
+      <section class="card visual-banner">
+        <img src="https://source.unsplash.com/1600x700/?map,landscape" alt="Mapa y territorio agrícola" loading="lazy" />
+        <p class="chart-source">Imagen libre: <a href="https://unsplash.com" target="_blank" rel="noopener noreferrer">Unsplash</a>.</p>
+      </section>
+      <section class="card">
+        <div class="section-head">
+          <h2>Mapa base en Google Maps (recuperado)</h2>
+          <p>Se muestra un mapa navegable con zoom, pan y cambio de escala para exploración territorial.</p>
+        </div>
+        <div class="map-wrapper">
+          <iframe title="Mapa Google de Murcia" src="https://maps.google.com/maps?q=Murcia%20Spain&t=&z=8&ie=UTF8&iwloc=&output=embed" loading="lazy"></iframe>
+        </div>
+        <p class="chart-source">Fuente cartográfica: <a href="https://maps.google.com" target="_blank" rel="noopener noreferrer">Google Maps</a>.</p>
+      </section>
+
+      <section class="card" id="mapa-zonas">
+        <div class="section-head">
+          <h2>Zonas limoneras orientativas</h2>
+          <p>Distribución cualitativa por áreas agrícolas para contextualizar visitas de campo y logística.</p>
+        </div>
+        <div class="zones" id="zones"></div>
+      </section>
+    </main>
+
+    <footer class="container footer">
+      <p>Las cuotas zonales son estimativas y deben contrastarse con estadística oficial.</p>
+    </footer>
+
+    <script src="app.js"></script>
+  </body>
+</html>
