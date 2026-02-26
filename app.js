@@ -43,13 +43,30 @@ const zones = [
 const quiz = [
   { q: 'Murcia es una de las principales zonas exportadoras de limón de España.', a: true },
   { q: 'El limón no necesita riego en el clima murciano.', a: false },
-  { q: 'La profesionalización del manipulado y la logística ha sido clave en el sector.', a: true }
+  { q: 'La profesionalización del manipulado y la logística ha sido clave en el sector.', a: true },
+  { q: 'Una estrategia comercial sólida puede compensar parcialmente una campaña con costes altos.', a: true }
 ];
+
+const traderSeries = [0.58, 0.56, 0.61, 0.64, 0.60, 0.66, 0.63, 0.68];
+const routeLoads = [
+  { tons: 12, basePrice: 0.59 },
+  { tons: 16, basePrice: 0.61 },
+  { tons: 10, basePrice: 0.63 },
+  { tons: 14, basePrice: 0.58 },
+  { tons: 18, basePrice: 0.62 }
+];
+const routeOptions = {
+  local: { label: 'Local', extraPrice: 0.01, logistics: 0.03 },
+  nacional: { label: 'Nacional', extraPrice: 0.03, logistics: 0.06 },
+  export: { label: 'Exportación UE', extraPrice: 0.06, logistics: 0.10 }
+};
 
 const fmt = (n, d = 0) => new Intl.NumberFormat('es-ES', { minimumFractionDigits: d, maximumFractionDigits: d }).format(n);
 
 let recentChart;
 let quizIndex = 0;
+let tradeState = { week: 0, stock: 100, revenue: 0 };
+let routeState = { lot: 0, profit: 0 };
 
 function renderKpis(year) {
   const current = yearlyData.reduce((prev, cur) => (Math.abs(cur.year - year) < Math.abs(prev.year - year) ? cur : prev));
@@ -171,6 +188,118 @@ function initQuiz() {
   showQuiz();
 }
 
+function renderTrader() {
+  const weekNode = document.getElementById('tradeWeek');
+  const priceNode = document.getElementById('tradePrice');
+  const stockNode = document.getElementById('tradeStock');
+  if (!weekNode || !priceNode || !stockNode) return;
+
+  const currentWeek = Math.min(tradeState.week + 1, traderSeries.length);
+  weekNode.textContent = String(currentWeek);
+  priceNode.textContent = fmt(traderSeries[Math.min(tradeState.week, traderSeries.length - 1)], 2);
+  stockNode.textContent = fmt(tradeState.stock, 0);
+}
+
+function finishTrader(statusNode) {
+  const avgPrice = tradeState.revenue / Math.max(1, (100 - tradeState.stock));
+  statusNode.textContent = `Fin de juego. Ingresos: ${fmt(tradeState.revenue, 0)} € · Precio medio de venta: ${fmt(avgPrice, 2)} €/kg. ${tradeState.revenue > 61000 ? '🏆 Nivel experto.' : 'Puedes mejorar sincronizando mejor las ventas.'}`;
+}
+
+function initTraderGame() {
+  const sellBtn = document.getElementById('tradeSell');
+  const holdBtn = document.getElementById('tradeHold');
+  const restartBtn = document.getElementById('tradeRestart');
+  const statusNode = document.getElementById('tradeStatus');
+  if (!sellBtn || !holdBtn || !restartBtn || !statusNode) return;
+
+  function nextWeek() {
+    tradeState.week += 1;
+    if (tradeState.week >= traderSeries.length || tradeState.stock <= 0) {
+      finishTrader(statusNode);
+      sellBtn.disabled = true;
+      holdBtn.disabled = true;
+      return;
+    }
+    renderTrader();
+  }
+
+  sellBtn.addEventListener('click', () => {
+    const price = traderSeries[tradeState.week];
+    const sold = Math.min(20, tradeState.stock);
+    tradeState.stock -= sold;
+    tradeState.revenue += sold * 1000 * price;
+    statusNode.textContent = `Vendidas ${sold} t a ${fmt(price, 2)} €/kg. Ingreso acumulado: ${fmt(tradeState.revenue, 0)} €.`;
+    nextWeek();
+  });
+
+  holdBtn.addEventListener('click', () => {
+    statusNode.textContent = `Has esperado en la semana ${tradeState.week + 1}.`; 
+    nextWeek();
+  });
+
+  restartBtn.addEventListener('click', () => {
+    tradeState = { week: 0, stock: 100, revenue: 0 };
+    sellBtn.disabled = false;
+    holdBtn.disabled = false;
+    statusNode.textContent = 'Nueva partida iniciada. ¿Vendes pronto o esperas picos de precio?';
+    renderTrader();
+  });
+
+  statusNode.textContent = 'Nueva partida iniciada. ¿Vendes pronto o esperas picos de precio?';
+  renderTrader();
+}
+
+function renderRouteLoad() {
+  const lotNode = document.getElementById('routeLot');
+  const tonsNode = document.getElementById('routeTons');
+  const priceNode = document.getElementById('routePrice');
+  if (!lotNode || !tonsNode || !priceNode) return;
+
+  const idx = Math.min(routeState.lot, routeLoads.length - 1);
+  lotNode.textContent = String(Math.min(routeState.lot + 1, routeLoads.length));
+  tonsNode.textContent = fmt(routeLoads[idx].tons, 0);
+  priceNode.textContent = fmt(routeLoads[idx].basePrice, 2);
+}
+
+function initRouteGame() {
+  const status = document.getElementById('routeStatus');
+  const restart = document.getElementById('routeRestart');
+  const buttons = document.querySelectorAll('.route-btn');
+  if (!status || !restart || !buttons.length) return;
+
+  function closeRouteGame() {
+    status.textContent = `Juego completado. Margen neto total: ${fmt(routeState.profit, 0)} €. ${routeState.profit > 28000 ? '🚚 Logística premium.' : 'Buen intento: revisa tu mix de destinos.'}`;
+    buttons.forEach((b) => { b.disabled = true; });
+  }
+
+  buttons.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const load = routeLoads[routeState.lot];
+      const option = routeOptions[btn.dataset.route];
+      const netKg = load.basePrice + option.extraPrice - option.logistics;
+      const net = netKg * load.tons * 1000;
+      routeState.profit += net;
+      status.textContent = `${option.label}: lote ${routeState.lot + 1} con margen ${fmt(net, 0)} €. Acumulado ${fmt(routeState.profit, 0)} €.`;
+      routeState.lot += 1;
+      if (routeState.lot >= routeLoads.length) {
+        closeRouteGame();
+      } else {
+        renderRouteLoad();
+      }
+    });
+  });
+
+  restart.addEventListener('click', () => {
+    routeState = { lot: 0, profit: 0 };
+    buttons.forEach((b) => { b.disabled = false; });
+    status.textContent = 'Nueva ronda logística iniciada. Elige destino para maximizar margen neto.';
+    renderRouteLoad();
+  });
+
+  status.textContent = 'Nueva ronda logística iniciada. Elige destino para maximizar margen neto.';
+  renderRouteLoad();
+}
+
 function initSim() {
   const run = document.getElementById('runSim');
   const out = document.getElementById('simResult');
@@ -180,12 +309,15 @@ function initSim() {
     const water = Number(document.getElementById('water').value);
     const cost = Number(document.getElementById('cost').value);
     const market = Number(document.getElementById('market').value);
-    const score = Math.round((water * 0.35) + (cost * 0.35) + (market * 0.3));
-    out.textContent = score >= 75
-      ? `Resultado ${score}/100: campaña sólida, buen equilibrio técnico-comercial.`
+    const innovation = Number(document.getElementById('innovation').value);
+    const score = Math.round((water * 0.3) + (cost * 0.25) + (market * 0.3) + (innovation * 0.15));
+    out.textContent = score >= 85
+      ? `Resultado ${score}/100: estrategia élite, preparada para competir en mercados exigentes.`
+      : score >= 70
+      ? `Resultado ${score}/100: estrategia sólida, pero aún puedes mejorar el equilibrio global.`
       : score >= 55
-      ? `Resultado ${score}/100: campaña viable, mejora riego/costes para proteger margen.`
-      : `Resultado ${score}/100: riesgo elevado, revisar estrategia y calendario de venta.`;
+      ? `Resultado ${score}/100: campaña viable con riesgo moderado; ajusta costes y comercialización.`
+      : `Resultado ${score}/100: riesgo alto. Replantea decisiones clave antes de ejecutar campaña.`;
   });
 }
 
@@ -197,6 +329,8 @@ function init() {
   initTimelineControls();
   renderKpis(2024);
   initQuiz();
+  initTraderGame();
+  initRouteGame();
   initSim();
 }
 

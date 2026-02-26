@@ -98,6 +98,11 @@ canvas {
 .timeline p { margin-top: .2rem; }
 .inline-source { color: var(--muted); font-size: .9rem; }
 .game { border:1px solid var(--border); border-radius: 12px; padding: .8rem; background:#f9fcfa; }
+
+.games-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: .9rem; }
+.game-highlight { border: 1px solid #b8d6c4; background: linear-gradient(180deg, #f7fdf9, #f1faf4); }
+.game label { display: block; margin: .5rem 0; font-size: .95rem; }
+.game input[type="range"] { width: 100%; }
 .game-actions { display: flex; gap: .5rem; flex-wrap: wrap; }
 .note { color: var(--muted); font-size: .9rem; }
 .sources-list { padding-left: 1.1rem; }
