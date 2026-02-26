@@ -83,6 +83,12 @@ canvas {
 .muted { color: var(--muted); }
 .sources-list { padding-left: 1.1rem; }
 .sources-list a { color: #155333; }
+.chart-source {
+  margin: .6rem 0 0;
+  color: var(--muted);
+  font-size: .9rem;
+}
+.chart-source a { color: #155333; }
 .note { color: var(--muted); font-size: .9rem; }
 .footer { color: var(--muted); padding: .2rem 0 1.3rem; }
 @media (max-width: 700px) {
