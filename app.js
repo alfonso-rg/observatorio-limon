@@ -11,24 +11,14 @@ const yearlyData = [
 ];
 
 const recentPrices = [
-  { date: '2025-02-03', eurKg: 0.57 }, { date: '2025-02-10', eurKg: 0.58 }, { date: '2025-02-17', eurKg: 0.59 },
-  { date: '2025-02-24', eurKg: 0.58 }, { date: '2025-03-03', eurKg: 0.59 }, { date: '2025-03-10', eurKg: 0.61 },
-  { date: '2025-03-17', eurKg: 0.60 }, { date: '2025-03-24', eurKg: 0.62 }, { date: '2025-03-31', eurKg: 0.61 },
-  { date: '2025-04-07', eurKg: 0.61 }, { date: '2025-04-14', eurKg: 0.60 }, { date: '2025-04-21', eurKg: 0.59 },
-  { date: '2025-04-28', eurKg: 0.58 }, { date: '2025-05-05', eurKg: 0.58 }, { date: '2025-05-12', eurKg: 0.57 },
-  { date: '2025-05-19', eurKg: 0.56 }, { date: '2025-05-26', eurKg: 0.55 }, { date: '2025-06-02', eurKg: 0.55 },
-  { date: '2025-06-09', eurKg: 0.54 }, { date: '2025-06-16', eurKg: 0.54 }, { date: '2025-06-23', eurKg: 0.55 },
-  { date: '2025-06-30', eurKg: 0.56 }, { date: '2025-07-07', eurKg: 0.56 }, { date: '2025-07-14', eurKg: 0.57 },
-  { date: '2025-07-21', eurKg: 0.58 }, { date: '2025-07-28', eurKg: 0.59 }, { date: '2025-08-04', eurKg: 0.60 },
-  { date: '2025-08-11', eurKg: 0.60 }, { date: '2025-08-18', eurKg: 0.61 }, { date: '2025-08-25', eurKg: 0.62 },
-  { date: '2025-09-01', eurKg: 0.62 }, { date: '2025-09-08', eurKg: 0.63 }, { date: '2025-09-15', eurKg: 0.63 },
-  { date: '2025-09-22', eurKg: 0.62 }, { date: '2025-09-29', eurKg: 0.61 }, { date: '2025-10-06', eurKg: 0.60 },
-  { date: '2025-10-13', eurKg: 0.59 }, { date: '2025-10-20', eurKg: 0.59 }, { date: '2025-10-27', eurKg: 0.58 },
-  { date: '2025-11-03', eurKg: 0.58 }, { date: '2025-11-10', eurKg: 0.57 }, { date: '2025-11-17', eurKg: 0.57 },
-  { date: '2025-11-24', eurKg: 0.56 }, { date: '2025-12-01', eurKg: 0.56 }, { date: '2025-12-08', eurKg: 0.57 },
-  { date: '2025-12-15', eurKg: 0.58 }, { date: '2025-12-22', eurKg: 0.58 }, { date: '2025-12-29', eurKg: 0.59 },
-  { date: '2026-01-05', eurKg: 0.58 }, { date: '2026-01-12', eurKg: 0.57 }, { date: '2026-01-19', eurKg: 0.56 },
-  { date: '2026-01-26', eurKg: 0.56 }, { date: '2026-02-02', eurKg: 0.55 }
+  { date: '2025-09-08', eurKg: 0.63 }, { date: '2025-09-15', eurKg: 0.63 }, { date: '2025-09-22', eurKg: 0.62 },
+  { date: '2025-09-29', eurKg: 0.61 }, { date: '2025-10-06', eurKg: 0.60 }, { date: '2025-10-13', eurKg: 0.59 },
+  { date: '2025-10-20', eurKg: 0.59 }, { date: '2025-10-27', eurKg: 0.58 }, { date: '2025-11-03', eurKg: 0.58 },
+  { date: '2025-11-10', eurKg: 0.57 }, { date: '2025-11-17', eurKg: 0.57 }, { date: '2025-11-24', eurKg: 0.56 },
+  { date: '2025-12-01', eurKg: 0.56 }, { date: '2025-12-08', eurKg: 0.57 }, { date: '2025-12-15', eurKg: 0.58 },
+  { date: '2025-12-22', eurKg: 0.58 }, { date: '2025-12-29', eurKg: 0.59 }, { date: '2026-01-05', eurKg: 0.58 },
+  { date: '2026-01-12', eurKg: 0.57 }, { date: '2026-01-19', eurKg: 0.56 }, { date: '2026-01-26', eurKg: 0.56 },
+  { date: '2026-02-02', eurKg: 0.55 }
 ];
 
 const zones = [
@@ -40,33 +30,8 @@ const zones = [
   ['Vega Alta', '10% estimado', 'Cieza/Abarán']
 ];
 
-const quiz = [
-  { q: 'Murcia es una de las principales zonas exportadoras de limón de España.', a: true },
-  { q: 'El limón no necesita riego en el clima murciano.', a: false },
-  { q: 'La profesionalización del manipulado y la logística ha sido clave en el sector.', a: true },
-  { q: 'Una estrategia comercial sólida puede compensar parcialmente una campaña con costes altos.', a: true }
-];
-
-const traderSeries = [0.58, 0.56, 0.61, 0.64, 0.60, 0.66, 0.63, 0.68];
-const routeLoads = [
-  { tons: 12, basePrice: 0.59 },
-  { tons: 16, basePrice: 0.61 },
-  { tons: 10, basePrice: 0.63 },
-  { tons: 14, basePrice: 0.58 },
-  { tons: 18, basePrice: 0.62 }
-];
-const routeOptions = {
-  local: { label: 'Local', extraPrice: 0.01, logistics: 0.03 },
-  nacional: { label: 'Nacional', extraPrice: 0.03, logistics: 0.06 },
-  export: { label: 'Exportación UE', extraPrice: 0.06, logistics: 0.10 }
-};
-
 const fmt = (n, d = 0) => new Intl.NumberFormat('es-ES', { minimumFractionDigits: d, maximumFractionDigits: d }).format(n);
-
 let recentChart;
-let quizIndex = 0;
-let tradeState = { week: 0, stock: 100, revenue: 0 };
-let routeState = { lot: 0, profit: 0 };
 
 function renderKpis(year) {
   const current = yearlyData.reduce((prev, cur) => (Math.abs(cur.year - year) < Math.abs(prev.year - year) ? cur : prev));
@@ -85,21 +50,9 @@ function initLongCharts() {
   if (!document.getElementById('productionChart') || typeof Chart === 'undefined') return;
   const years = yearlyData.map((d) => d.year);
   const common = { responsive: true, plugins: { legend: { position: 'top' } } };
-  new Chart(document.getElementById('productionChart'), {
-    type: 'line',
-    data: { labels: years, datasets: [{ label: 'Producción (kt)', data: yearlyData.map((d) => d.productionKt), borderColor: '#2f9e44', backgroundColor: '#2f9e4422', fill: true }] },
-    options: common
-  });
-  new Chart(document.getElementById('areaChart'), {
-    type: 'line',
-    data: { labels: years, datasets: [{ label: 'Superficie (ha)', data: yearlyData.map((d) => d.areaHa), borderColor: '#1971c2', backgroundColor: '#1971c222', fill: true }] },
-    options: common
-  });
-  new Chart(document.getElementById('yieldChart'), {
-    type: 'line',
-    data: { labels: years, datasets: [{ label: 'Rendimiento (t/ha)', data: yearlyData.map((d) => d.yield), borderColor: '#5f3dc4', backgroundColor: '#5f3dc422', fill: true }] },
-    options: common
-  });
+  new Chart(document.getElementById('productionChart'), { type: 'line', data: { labels: years, datasets: [{ label: 'Producción (kt)', data: yearlyData.map((d) => d.productionKt), borderColor: '#2f9e44', backgroundColor: '#2f9e4422', fill: true }] }, options: common });
+  new Chart(document.getElementById('areaChart'), { type: 'line', data: { labels: years, datasets: [{ label: 'Superficie (ha)', data: yearlyData.map((d) => d.areaHa), borderColor: '#1971c2', backgroundColor: '#1971c222', fill: true }] }, options: common });
+  new Chart(document.getElementById('yieldChart'), { type: 'line', data: { labels: years, datasets: [{ label: 'Rendimiento (t/ha)', data: yearlyData.map((d) => d.yield), borderColor: '#5f3dc4', backgroundColor: '#5f3dc422', fill: true }] }, options: common });
 }
 
 function updateRecentChart(daysWindow) {
@@ -124,201 +77,257 @@ function updateRecentChart(daysWindow) {
   if (recentChart) recentChart.destroy();
   recentChart = new Chart(document.getElementById('recentPriceChart'), {
     type: 'line',
-    data: {
-      labels,
-      datasets: [{ label: 'Precio semanal limón Murcia (€/kg)', data, borderColor: '#f08c00', backgroundColor: '#f08c0022', fill: true, tension: 0.25 }]
-    },
+    data: { labels, datasets: [{ label: 'Precio semanal limón Murcia (€/kg)', data, borderColor: '#f08c00', backgroundColor: '#f08c0022', fill: true, tension: 0.25 }] },
     options: { responsive: true, plugins: { legend: { position: 'top' } } }
   });
 }
 
 function initWindowButtons() {
-  document.querySelectorAll('#windowButtons button').forEach((btn) => {
-    btn.addEventListener('click', () => updateRecentChart(Number(btn.dataset.window)));
-  });
+  document.querySelectorAll('#windowButtons button').forEach((btn) => btn.addEventListener('click', () => updateRecentChart(Number(btn.dataset.window))));
 }
-
 function initTimelineControls() {
   const slider = document.getElementById('yearRange');
   const yearValue = document.getElementById('yearValue');
   if (!slider || !yearValue) return;
-  slider.addEventListener('input', () => {
-    yearValue.textContent = slider.value;
-    renderKpis(Number(slider.value));
-  });
+  slider.addEventListener('input', () => { yearValue.textContent = slider.value; renderKpis(Number(slider.value)); });
 }
-
 function renderZones() {
   const node = document.getElementById('zones');
   if (!node) return;
-  node.innerHTML = zones.map((z) => `
-    <article class="zone">
-      <strong>${z[0]}</strong>
-      <span>${z[1]}</span>
-      <small>${z[2]}</small>
-    </article>
-  `).join('');
+  node.innerHTML = zones.map((z) => `<article class="zone"><strong>${z[0]}</strong><span>${z[1]}</span><small>${z[2]}</small></article>`).join('');
 }
 
-function showQuiz() {
-  const q = document.getElementById('quizQuestion');
-  const f = document.getElementById('quizFeedback');
-  if (!q || !f) return;
-  q.textContent = quiz[quizIndex].q;
-  f.textContent = '';
+function initGameTrader() {
+  const weekNode = document.getElementById('gtWeek');
+  if (!weekNode) return;
+  const prices = [0.56, 0.59, 0.61, 0.58, 0.64, 0.67, 0.63, 0.69, 0.66, 0.71];
+  const st = { week: 0, stock: 120, rev: 0 };
+  const log = document.getElementById('gtLog');
+  const sell10 = document.getElementById('gtSell10');
+  const sell20 = document.getElementById('gtSell20');
+  const hold = document.getElementById('gtHold');
+  const restart = document.getElementById('gtRestart');
+  const progress = document.getElementById('gtProgress');
+
+  const paint = () => {
+    document.getElementById('gtWeek').textContent = String(Math.min(st.week + 1, prices.length));
+    document.getElementById('gtPrice').textContent = fmt(prices[Math.min(st.week, prices.length - 1)], 2);
+    document.getElementById('gtStock').textContent = fmt(st.stock, 0);
+    progress.style.width = `${Math.round(((st.week) / prices.length) * 100)}%`;
+  };
+  const end = () => {
+    const avg = st.rev / Math.max(1, (120 - st.stock));
+    log.textContent = `Fin. Ingresos ${fmt(st.rev, 0)} € · Precio medio ${fmt(avg, 2)} €/kg. ${st.rev > 76000 ? '🏆 Magistral' : 'Reintenta para mejorar.'}`;
+    [sell10, sell20, hold].forEach((b) => { b.disabled = true; });
+  };
+  const next = () => { st.week += 1; if (st.week >= prices.length || st.stock <= 0) end(); else paint(); };
+
+  sell10.addEventListener('click', () => { const sold = Math.min(10, st.stock); st.stock -= sold; st.rev += sold * 1000 * prices[st.week]; log.textContent = `Vendiste ${sold} t.`; next(); });
+  sell20.addEventListener('click', () => { const sold = Math.min(20, st.stock); st.stock -= sold; st.rev += sold * 1000 * prices[st.week]; log.textContent = `Vendiste ${sold} t.`; next(); });
+  hold.addEventListener('click', () => { log.textContent = 'Esperaste buscando mejor precio.'; next(); });
+  restart.addEventListener('click', () => { st.week = 0; st.stock = 120; st.rev = 0; [sell10, sell20, hold].forEach((b) => { b.disabled = false; }); log.textContent = 'Nueva partida.'; paint(); });
+  paint();
 }
 
-function initQuiz() {
-  const feedback = document.getElementById('quizFeedback');
-  const trueBtn = document.getElementById('quizTrue');
-  const falseBtn = document.getElementById('quizFalse');
-  const nextBtn = document.getElementById('quizNext');
-  if (!feedback || !trueBtn || !falseBtn || !nextBtn) return;
+function initGameLogistica() {
+  const lotNode = document.getElementById('glLot');
+  if (!lotNode) return;
+  const loads = [{ t: 9, p: 0.58 }, { t: 14, p: 0.61 }, { t: 11, p: 0.6 }, { t: 16, p: 0.62 }, { t: 12, p: 0.57 }, { t: 10, p: 0.63 }, { t: 15, p: 0.59 }, { t: 13, p: 0.64 }];
+  const routes = { local: { bonus: 0.01, cost: 0.02 }, nacional: { bonus: 0.03, cost: 0.05 }, export: { bonus: 0.06, cost: 0.09 } };
+  const st = { i: 0, score: 0 };
+  const log = document.getElementById('glLog');
+  const buttons = document.querySelectorAll('.glRoute');
+  const restart = document.getElementById('glRestart');
 
-  trueBtn.addEventListener('click', () => {
-    feedback.textContent = quiz[quizIndex].a ? '✅ Correcto.' : '❌ Incorrecto.';
-  });
-  falseBtn.addEventListener('click', () => {
-    feedback.textContent = !quiz[quizIndex].a ? '✅ Correcto.' : '❌ Incorrecto.';
-  });
-  nextBtn.addEventListener('click', () => {
-    quizIndex = (quizIndex + 1) % quiz.length;
-    showQuiz();
-  });
-  showQuiz();
-}
-
-function renderTrader() {
-  const weekNode = document.getElementById('tradeWeek');
-  const priceNode = document.getElementById('tradePrice');
-  const stockNode = document.getElementById('tradeStock');
-  if (!weekNode || !priceNode || !stockNode) return;
-
-  const currentWeek = Math.min(tradeState.week + 1, traderSeries.length);
-  weekNode.textContent = String(currentWeek);
-  priceNode.textContent = fmt(traderSeries[Math.min(tradeState.week, traderSeries.length - 1)], 2);
-  stockNode.textContent = fmt(tradeState.stock, 0);
-}
-
-function finishTrader(statusNode) {
-  const avgPrice = tradeState.revenue / Math.max(1, (100 - tradeState.stock));
-  statusNode.textContent = `Fin de juego. Ingresos: ${fmt(tradeState.revenue, 0)} € · Precio medio de venta: ${fmt(avgPrice, 2)} €/kg. ${tradeState.revenue > 61000 ? '🏆 Nivel experto.' : 'Puedes mejorar sincronizando mejor las ventas.'}`;
-}
-
-function initTraderGame() {
-  const sellBtn = document.getElementById('tradeSell');
-  const holdBtn = document.getElementById('tradeHold');
-  const restartBtn = document.getElementById('tradeRestart');
-  const statusNode = document.getElementById('tradeStatus');
-  if (!sellBtn || !holdBtn || !restartBtn || !statusNode) return;
-
-  function nextWeek() {
-    tradeState.week += 1;
-    if (tradeState.week >= traderSeries.length || tradeState.stock <= 0) {
-      finishTrader(statusNode);
-      sellBtn.disabled = true;
-      holdBtn.disabled = true;
-      return;
+  const paint = () => {
+    const d = loads[Math.min(st.i, loads.length - 1)];
+    document.getElementById('glLot').textContent = String(Math.min(st.i + 1, loads.length));
+    document.getElementById('glTons').textContent = fmt(d.t, 0);
+    document.getElementById('glBase').textContent = fmt(d.p, 2);
+  };
+  buttons.forEach((btn) => btn.addEventListener('click', () => {
+    const d = loads[st.i];
+    const r = routes[btn.dataset.route];
+    const net = (d.p + r.bonus - r.cost) * d.t * 1000;
+    st.score += net;
+    st.i += 1;
+    if (st.i >= loads.length) {
+      buttons.forEach((b) => { b.disabled = true; });
+      log.textContent = `Final: margen ${fmt(st.score, 0)} €. ${st.score > 54000 ? '🚚 Campeón logístico' : 'Buen nivel, prueba otro mix.'}`;
+    } else {
+      log.textContent = `+${fmt(net, 0)} € en este lote. Acumulado ${fmt(st.score, 0)} €.`;
+      paint();
     }
-    renderTrader();
-  }
-
-  sellBtn.addEventListener('click', () => {
-    const price = traderSeries[tradeState.week];
-    const sold = Math.min(20, tradeState.stock);
-    tradeState.stock -= sold;
-    tradeState.revenue += sold * 1000 * price;
-    statusNode.textContent = `Vendidas ${sold} t a ${fmt(price, 2)} €/kg. Ingreso acumulado: ${fmt(tradeState.revenue, 0)} €.`;
-    nextWeek();
-  });
-
-  holdBtn.addEventListener('click', () => {
-    statusNode.textContent = `Has esperado en la semana ${tradeState.week + 1}.`; 
-    nextWeek();
-  });
-
-  restartBtn.addEventListener('click', () => {
-    tradeState = { week: 0, stock: 100, revenue: 0 };
-    sellBtn.disabled = false;
-    holdBtn.disabled = false;
-    statusNode.textContent = 'Nueva partida iniciada. ¿Vendes pronto o esperas picos de precio?';
-    renderTrader();
-  });
-
-  statusNode.textContent = 'Nueva partida iniciada. ¿Vendes pronto o esperas picos de precio?';
-  renderTrader();
+  }));
+  restart.addEventListener('click', () => { st.i = 0; st.score = 0; buttons.forEach((b) => { b.disabled = false; }); log.textContent = 'Nueva ronda.'; paint(); });
+  paint();
 }
 
-function renderRouteLoad() {
-  const lotNode = document.getElementById('routeLot');
-  const tonsNode = document.getElementById('routeTons');
-  const priceNode = document.getElementById('routePrice');
-  if (!lotNode || !tonsNode || !priceNode) return;
+function initGamePlagas() {
+  const roundNode = document.getElementById('gpRound');
+  if (!roundNode) return;
+  const events = [18, 24, 15, 30, 20, 28, 22];
+  const actions = { rapida: { cost: 8, block: 10 }, equilibrada: { cost: 14, block: 18 }, premium: { cost: 22, block: 28 } };
+  const st = { i: 0, budget: 100, health: 100 };
+  const eventText = document.getElementById('gpEvent');
+  const log = document.getElementById('gpLog');
+  const restart = document.getElementById('gpRestart');
 
-  const idx = Math.min(routeState.lot, routeLoads.length - 1);
-  lotNode.textContent = String(Math.min(routeState.lot + 1, routeLoads.length));
-  tonsNode.textContent = fmt(routeLoads[idx].tons, 0);
-  priceNode.textContent = fmt(routeLoads[idx].basePrice, 2);
+  const paint = () => {
+    document.getElementById('gpRound').textContent = String(Math.min(st.i + 1, events.length));
+    document.getElementById('gpBudget').textContent = fmt(st.budget, 0);
+    document.getElementById('gpHealth').textContent = fmt(st.health, 0);
+    eventText.textContent = `Amenaza estimada de esta semana: ${events[Math.min(st.i, events.length - 1)]} puntos.`;
+  };
+  document.querySelectorAll('.gpAction').forEach((btn) => btn.addEventListener('click', () => {
+    const a = actions[btn.dataset.action];
+    if (st.budget < a.cost) { log.textContent = 'No tienes presupuesto suficiente para esa respuesta.'; return; }
+    st.budget -= a.cost;
+    const dmg = Math.max(0, events[st.i] - a.block);
+    st.health = Math.max(0, st.health - dmg);
+    st.i += 1;
+    if (st.i >= events.length || st.health <= 0) {
+      log.textContent = `Resultado final: salud ${fmt(st.health, 0)}% y presupuesto ${fmt(st.budget, 0)}. ${st.health >= 70 ? '🛡️ Gestión excelente' : 'Puedes mejorar el balance riesgo/coste.'}`;
+    } else {
+      log.textContent = `Daño recibido ${fmt(dmg, 0)}.`; paint();
+    }
+  }));
+  restart.addEventListener('click', () => { st.i = 0; st.budget = 100; st.health = 100; log.textContent = 'Nueva campaña de defensa.'; paint(); });
+  paint();
 }
 
-function initRouteGame() {
-  const status = document.getElementById('routeStatus');
-  const restart = document.getElementById('routeRestart');
-  const buttons = document.querySelectorAll('.route-btn');
-  if (!status || !restart || !buttons.length) return;
+function initGameRiego() {
+  const weekNode = document.getElementById('grWeek');
+  if (!weekNode) return;
+  const weather = [12, 14, 8, 18, 20, 11, 9, 16, 13, 17];
+  const st = { i: 0, water: 100, yieldScore: 100 };
+  const log = document.getElementById('grLog');
 
-  function closeRouteGame() {
-    status.textContent = `Juego completado. Margen neto total: ${fmt(routeState.profit, 0)} €. ${routeState.profit > 28000 ? '🚚 Logística premium.' : 'Buen intento: revisa tu mix de destinos.'}`;
-    buttons.forEach((b) => { b.disabled = true; });
-  }
+  const paint = () => {
+    document.getElementById('grWeek').textContent = String(Math.min(st.i + 1, weather.length));
+    document.getElementById('grWeather').textContent = `${weather[Math.min(st.i, weather.length - 1)]} (demanda hídrica)`;
+    document.getElementById('grWaterBank').textContent = fmt(st.water, 0);
+  };
 
-  buttons.forEach((btn) => {
-    btn.addEventListener('click', () => {
-      const load = routeLoads[routeState.lot];
-      const option = routeOptions[btn.dataset.route];
-      const netKg = load.basePrice + option.extraPrice - option.logistics;
-      const net = netKg * load.tons * 1000;
-      routeState.profit += net;
-      status.textContent = `${option.label}: lote ${routeState.lot + 1} con margen ${fmt(net, 0)} €. Acumulado ${fmt(routeState.profit, 0)} €.`;
-      routeState.lot += 1;
-      if (routeState.lot >= routeLoads.length) {
-        closeRouteGame();
+  document.getElementById('grApply').addEventListener('click', () => {
+    const input = Number(document.getElementById('grInput').value);
+    if (input > st.water) { log.textContent = 'No hay agua suficiente disponible.'; return; }
+    st.water -= input;
+    const diff = Math.abs(weather[st.i] - input);
+    st.yieldScore = Math.max(0, st.yieldScore - diff * 1.8);
+    st.i += 1;
+    if (st.i >= weather.length) {
+      log.textContent = `Fin de temporada: rendimiento ${fmt(st.yieldScore, 0)}/100. ${st.yieldScore > 78 ? '💧 Maestro del riego' : 'Reajusta la dosis semanal para mejorar.'}`;
+    } else {
+      log.textContent = `Desajuste de esta semana: ${fmt(diff, 0)}.`;
+      paint();
+    }
+  });
+
+  document.getElementById('grRestart').addEventListener('click', () => { st.i = 0; st.water = 100; st.yieldScore = 100; log.textContent = 'Nuevo ciclo de riego.'; paint(); });
+  paint();
+}
+
+function initGameQuizPro() {
+  const qNode = document.getElementById('gqQ');
+  if (!qNode) return;
+  const data = [
+    { q: '¿Qué indicador mide t/ha?', o: ['Producción', 'Rendimiento', 'Superficie'], a: 1 },
+    { q: '¿Qué ventana sirve para táctica inmediata?', o: ['30 días', '365 días', '5 años'], a: 0 },
+    { q: '¿Qué suele tener mayor coste logístico?', o: ['Local', 'Nacional', 'Exportación'], a: 2 },
+    { q: '¿Qué órgano publica observatorio de precios en Murcia?', o: ['CARM', 'FAO', 'BCE'], a: 0 },
+    { q: 'En estrés hídrico, ¿qué es clave?', o: ['Riego eficiente', 'Más superficie', 'Menos seguimiento'], a: 0 },
+    { q: '¿Qué variable afecta el margen?', o: ['Precio y costes', 'Solo clima', 'Solo producción'], a: 0 },
+    { q: '¿Qué mejora competitividad exterior?', o: ['Trazabilidad', 'Aleatoriedad', 'Descontrol de calidad'], a: 0 },
+    { q: '¿Qué estrategia reduce riesgo?', o: ['Monitorización semanal', 'Ignorar precios', 'Vender al azar'], a: 0 }
+  ];
+  let i = 0; let score = 0; let time = 15; let timer;
+  const timerNode = document.getElementById('gqTimer');
+  const log = document.getElementById('gqLog');
+  const optionsNode = document.getElementById('gqOptions');
+
+  const paint = () => {
+    document.getElementById('gqIndex').textContent = String(i + 1);
+    qNode.textContent = data[i].q;
+    optionsNode.innerHTML = data[i].o.map((opt, idx) => `<button class="gqOpt" data-idx="${idx}" type="button">${opt}</button>`).join('');
+    document.querySelectorAll('.gqOpt').forEach((btn) => btn.addEventListener('click', () => {
+      if (Number(btn.dataset.idx) === data[i].a) score += 10;
+      i += 1;
+      if (i >= data.length) {
+        clearInterval(timer);
+        log.textContent = `Resultado final: ${score}/80 (${Math.round((score / 80) * 100)}%).`;
+        qNode.textContent = 'Quiz completado';
+        optionsNode.innerHTML = '';
       } else {
-        renderRouteLoad();
+        time = 15;
+        paint();
       }
-    });
-  });
+    }));
+  };
+  timer = setInterval(() => {
+    time -= 1;
+    timerNode.textContent = String(time);
+    if (time <= 0) {
+      i += 1; time = 15;
+      if (i >= data.length) {
+        clearInterval(timer);
+        log.textContent = `Tiempo agotado. Resultado ${score}/80.`;
+        qNode.textContent = 'Quiz finalizado';
+        optionsNode.innerHTML = '';
+      } else {
+        paint();
+      }
+    }
+  }, 1000);
 
-  restart.addEventListener('click', () => {
-    routeState = { lot: 0, profit: 0 };
-    buttons.forEach((b) => { b.disabled = false; });
-    status.textContent = 'Nueva ronda logística iniciada. Elige destino para maximizar margen neto.';
-    renderRouteLoad();
+  document.getElementById('gqRestart').addEventListener('click', () => {
+    clearInterval(timer);
+    i = 0; score = 0; time = 15; timerNode.textContent = '15'; log.textContent = 'Reinicio completo.'; paint();
+    timer = setInterval(() => {
+      time -= 1;
+      timerNode.textContent = String(time);
+      if (time <= 0) {
+        i += 1; time = 15;
+        if (i >= data.length) {
+          clearInterval(timer);
+          log.textContent = `Tiempo agotado. Resultado ${score}/80.`;
+          qNode.textContent = 'Quiz finalizado';
+          optionsNode.innerHTML = '';
+        } else paint();
+      }
+    }, 1000);
   });
-
-  status.textContent = 'Nueva ronda logística iniciada. Elige destino para maximizar margen neto.';
-  renderRouteLoad();
+  paint();
 }
 
-function initSim() {
-  const run = document.getElementById('runSim');
-  const out = document.getElementById('simResult');
-  if (!run || !out) return;
+function initGameRanking() {
+  const run = document.getElementById('rkRun');
+  if (!run) return;
+  const table = document.getElementById('rkTable');
+  const log = document.getElementById('rkLog');
+  const key = 'limonRankingV1';
+  const read = () => JSON.parse(localStorage.getItem(key) || '[]');
+  const draw = () => {
+    const items = read();
+    table.innerHTML = items.map((x) => `<li>${x.name}: <strong>${x.score}</strong></li>`).join('');
+  };
 
   run.addEventListener('click', () => {
-    const water = Number(document.getElementById('water').value);
-    const cost = Number(document.getElementById('cost').value);
-    const market = Number(document.getElementById('market').value);
-    const innovation = Number(document.getElementById('innovation').value);
-    const score = Math.round((water * 0.3) + (cost * 0.25) + (market * 0.3) + (innovation * 0.15));
-    out.textContent = score >= 85
-      ? `Resultado ${score}/100: estrategia élite, preparada para competir en mercados exigentes.`
-      : score >= 70
-      ? `Resultado ${score}/100: estrategia sólida, pero aún puedes mejorar el equilibrio global.`
-      : score >= 55
-      ? `Resultado ${score}/100: campaña viable con riesgo moderado; ajusta costes y comercialización.`
-      : `Resultado ${score}/100: riesgo alto. Replantea decisiones clave antes de ejecutar campaña.`;
+    const water = Number(document.getElementById('rkWater').value);
+    const cost = Number(document.getElementById('rkCost').value);
+    const market = Number(document.getElementById('rkMarket').value);
+    const innovation = Number(document.getElementById('rkInnovation').value);
+    const score = Math.round(water * 0.27 + cost * 0.23 + market * 0.3 + innovation * 0.2);
+    const items = read();
+    items.push({ name: `Campaña ${items.length + 1}`, score });
+    items.sort((a, b) => b.score - a.score);
+    localStorage.setItem(key, JSON.stringify(items.slice(0, 8)));
+    log.textContent = `Has obtenido ${score}/100.`;
+    draw();
   });
+
+  document.getElementById('rkClear').addEventListener('click', () => { localStorage.removeItem(key); draw(); log.textContent = 'Ranking borrado.'; });
+  draw();
 }
 
 function init() {
@@ -328,10 +337,13 @@ function init() {
   initWindowButtons();
   initTimelineControls();
   renderKpis(2024);
-  initQuiz();
-  initTraderGame();
-  initRouteGame();
-  initSim();
+
+  initGameTrader();
+  initGameLogistica();
+  initGamePlagas();
+  initGameRiego();
+  initGameQuizPro();
+  initGameRanking();
 }
 
 document.addEventListener('DOMContentLoaded', init);

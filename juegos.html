@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Juegos del Limón en Murcia</title>
+    <title>Arcade del Limón en Murcia</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
@@ -12,9 +12,9 @@
   <body>
     <header class="hero">
       <div class="container">
-        <p class="eyebrow">Formación y divulgación</p>
-        <h1>Juegos inspirados en el limón murciano</h1>
-        <p>Laboratorio de minijuegos para entrenar decisiones reales de campaña, logística y comercialización.</p>
+        <p class="eyebrow">Arcade profesional del limón</p>
+        <h1>Juegos: liga de decisiones limoneras</h1>
+        <p>Explora minijuegos más completos para volver al portal: estrategia, reflejos, gestión de riesgo, logística y ranking.</p>
         <nav class="top-nav">
           <a href="index.html">Inicio</a>
           <a href="precios.html">Precios</a>
@@ -30,64 +30,22 @@
     <main class="container">
       <section class="card">
         <div class="section-head">
-          <h2>Arcade profesional del limón</h2>
-          <p>Cuatro desafíos progresivos: conocimiento, trading semanal, logística y estrategia integral de campaña.</p>
+          <h2>Elige tu desafío</h2>
+          <p>Cada minijuego tiene mecánicas distintas y puntuación propia. Puedes rejugarlos para batir tu récord.</p>
         </div>
-        <div class="games-grid">
-          <article class="game game-highlight">
-            <h2>1) Quiz exprés limonero</h2>
-            <p id="quizQuestion"></p>
-            <div class="game-actions">
-              <button id="quizTrue" type="button">Verdadero</button>
-              <button id="quizFalse" type="button">Falso</button>
-              <button id="quizNext" type="button">Siguiente</button>
-            </div>
-            <p id="quizFeedback" class="note"></p>
-          </article>
-
-          <article class="game game-highlight">
-            <h2>2) Trader de limón (8 semanas)</h2>
-            <p>Decide vender o esperar cada semana. Maximiza beneficio acumulado antes de que acabe la campaña.</p>
-            <p><strong>Semana:</strong> <span id="tradeWeek">1</span>/8 · <strong>Precio:</strong> <span id="tradePrice">0,00</span> €/kg · <strong>Stock:</strong> <span id="tradeStock">100</span> t</p>
-            <div class="game-actions">
-              <button id="tradeSell" type="button">Vender 20 t</button>
-              <button id="tradeHold" type="button">Esperar</button>
-              <button id="tradeRestart" type="button">Reiniciar</button>
-            </div>
-            <p id="tradeStatus" class="note"></p>
-          </article>
-
-          <article class="game">
-            <h2>3) Logística express</h2>
-            <p>Elige destino para cada lote. Buscas mayor margen neto según precio y coste logístico.</p>
-            <p><strong>Lote:</strong> <span id="routeLot">1</span>/5 · <strong>Toneladas:</strong> <span id="routeTons">0</span> · <strong>Precio base:</strong> <span id="routePrice">0,00</span> €/kg</p>
-            <div class="game-actions">
-              <button class="route-btn" data-route="local" type="button">Mercado local</button>
-              <button class="route-btn" data-route="nacional" type="button">Mercado nacional</button>
-              <button class="route-btn" data-route="export" type="button">Exportación UE</button>
-              <button id="routeRestart" type="button">Reiniciar</button>
-            </div>
-            <p id="routeStatus" class="note"></p>
-          </article>
-
-          <article class="game">
-            <h2>4) Director de campaña PRO</h2>
-            <p>Configura una estrategia equilibrada y compite por una nota de 0 a 100.</p>
-            <label>Riego eficiente (0–100): <input type="range" id="water" min="0" max="100" value="60" /></label>
-            <label>Control de costes (0–100): <input type="range" id="cost" min="0" max="100" value="60" /></label>
-            <label>Plan comercial (0–100): <input type="range" id="market" min="0" max="100" value="60" /></label>
-            <label>Innovación y calidad (0–100): <input type="range" id="innovation" min="0" max="100" value="55" /></label>
-            <p><button type="button" id="runSim">Simular estrategia</button></p>
-            <p id="simResult" class="note"></p>
-          </article>
+        <div class="games-catalog">
+          <a class="game-card-link" href="juego-trader.html"><strong>📈 Trader de limón PRO</strong><span>Gestiona stock durante 10 semanas y busca el máximo beneficio.</span></a>
+          <a class="game-card-link" href="juego-logistica.html"><strong>🚚 Logística táctica</strong><span>Optimiza destinos de lotes para maximizar margen neto.</span></a>
+          <a class="game-card-link" href="juego-plagas.html"><strong>🛡️ Defensor de la finca</strong><span>Responde eventos de plagas/estrés con recursos limitados.</span></a>
+          <a class="game-card-link" href="juego-riego.html"><strong>💧 Maestro del riego</strong><span>Ajusta riego por clima semanal y evita pérdidas de rendimiento.</span></a>
+          <a class="game-card-link" href="juego-quiz.html"><strong>🧠 Quiz experto</strong><span>Preguntas con dificultad creciente y cronómetro.</span></a>
+          <a class="game-card-link" href="juego-ranking.html"><strong>🏆 Ranking de campaña</strong><span>Compite en una simulación integral y entra en tabla histórica.</span></a>
         </div>
       </section>
     </main>
 
     <footer class="container footer">
-      <p>Juegos diseñados para formación práctica y toma de decisiones.</p>
+      <p>Modo recomendado: juega en portátil o tablet para mejor experiencia.</p>
     </footer>
-
-    <script src="app.js"></script>
   </body>
 </html>

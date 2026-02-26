@@ -1,0 +1,9 @@
+<!doctype html>
+<html lang="es">
+  <head><meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" /><title>Ranking de Campaña</title><link rel="preconnect" href="https://fonts.googleapis.com" /><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin /><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" /><link rel="stylesheet" href="styles.css" /></head>
+  <body data-game="ranking">
+    <header class="hero"><div class="container"><p class="eyebrow">Minijuego 6/6</p><h1>🏆 Ranking de campaña</h1><nav class="top-nav"><a href="juegos.html">⬅ Volver a juegos</a></nav></div></header>
+    <main class="container"><section class="card game-screen"><p>Configura tu estrategia y compite con registros guardados en tu navegador.</p><label>Riego eficiente <input id="rkWater" type="range" min="0" max="100" value="60" /></label><label>Costes <input id="rkCost" type="range" min="0" max="100" value="60" /></label><label>Comercial <input id="rkMarket" type="range" min="0" max="100" value="60" /></label><label>Innovación <input id="rkInnovation" type="range" min="0" max="100" value="60" /></label><div class="game-actions"><button id="rkRun" type="button">Jugar campaña</button><button id="rkClear" type="button">Borrar ranking</button></div><p id="rkLog" class="note"></p><ol id="rkTable"></ol></section></main>
+    <script src="app.js"></script>
+  </body>
+</html>

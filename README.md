@@ -9,7 +9,13 @@ Portal web multipágina (HTML/CSS/JS) sobre el mercado del limón en Murcia para
 - `evolucion.html`: evolución 2004–2024 (producción, superficie, rendimiento).
 - `mapa.html`: mapa interactivo embebido en Google Maps + zonas limoneras orientativas.
 - `historia.html`: sección enciclopédica extensa con referencias por párrafo.
-- `juegos.html`: quiz y simulador de campaña.
+- `juegos.html`: hub del arcade con enlaces a minijuegos.
+- `juego-trader.html`: simulador de trading semanal.
+- `juego-logistica.html`: minijuego de rutas y márgenes.
+- `juego-plagas.html`: gestión de eventos de riesgo en finca.
+- `juego-riego.html`: optimización de riego semanal.
+- `juego-quiz.html`: quiz experto con cronómetro.
+- `juego-ranking.html`: simulador con ranking persistente.
 - `fuentes.html`: inventario de enlaces de referencia.
 
 ## Ejecución local
