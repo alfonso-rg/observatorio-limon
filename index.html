@@ -3,120 +3,153 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Observatorio del Limón en Murcia (2004-2024)</title>
+    <title>Portal del Mercado del Limón en Murcia</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      rel="stylesheet"
-      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
-      integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
-      crossorigin=""
-    />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <header class="hero">
-      <div class="hero__content container">
-        <p class="eyebrow">Observatorio profesional del cítrico</p>
-        <h1>Mercado del limón en Murcia · 2004–2024</h1>
-        <p>
-          Panel interactivo con series históricas de producción, superficie, rendimiento y precios
-          en origen, más mapa territorial y noticias sectoriales.
-        </p>
-        <div class="controls-row">
-          <label for="yearRange">Año de análisis:</label>
-          <input type="range" id="yearRange" min="2004" max="2024" value="2024" />
-          <span id="yearValue">2024</span>
-        </div>
+    <header class="hero" id="inicio">
+      <div class="container">
+        <p class="eyebrow">Portal profesional · Limón en Murcia</p>
+        <h1>Mercado del Limón en Murcia</h1>
+        <p>Portal interactivo para productores, cooperativas y técnicos: precios, evolución, noticias, contexto histórico y recursos prácticos.</p>
+        <nav class="top-nav">
+          <a href="#precios">Precios</a>
+          <a href="#evolucion">Evolución</a>
+          <a href="#mapa">Mapa</a>
+          <a href="#historia">Historia</a>
+          <a href="#juegos">Juegos</a>
+          <a href="#fuentes">Fuentes</a>
+        </nav>
       </div>
     </header>
 
     <main class="container">
-      <section class="kpis" id="kpiGrid"></section>
-
-      <section class="card">
-        <div class="section-title">
-          <h2>Evolución histórica (20 años)</h2>
-          <p>Comparativa de variables clave del sector limonero murciano.</p>
+      <section class="card" id="precios">
+        <div class="section-head">
+          <h2>Precios actuales y ventanas temporales</h2>
+          <p>Lectura rápida de precio en origen (Murcia) y evolución reciente por ventanas de análisis.</p>
         </div>
-        <div class="chart-grid">
+        <div class="window-buttons" id="windowButtons">
+          <button type="button" data-window="30">Último mes</button>
+          <button type="button" data-window="90">Últimos 3 meses</button>
+          <button type="button" data-window="365">Último año</button>
+        </div>
+        <div class="kpis" id="priceKpis"></div>
+        <canvas id="recentPriceChart" aria-label="Evolución reciente del precio del limón"></canvas>
+      </section>
+
+      <section class="card" id="evolucion">
+        <div class="section-head">
+          <h2>Evolución sectorial 2004–2024</h2>
+          <p>Producción, superficie y rendimiento del limón en Murcia.</p>
+        </div>
+        <div class="controls-row">
+          <label for="yearRange">Año:</label>
+          <input type="range" id="yearRange" min="2004" max="2024" value="2024" />
+          <span id="yearValue">2024</span>
+        </div>
+        <div class="kpis" id="kpiGrid"></div>
+        <div class="grid-2">
           <canvas id="productionChart"></canvas>
-          <canvas id="priceChart"></canvas>
           <canvas id="areaChart"></canvas>
           <canvas id="yieldChart"></canvas>
         </div>
       </section>
 
-      <section class="card split">
-        <div>
-          <div class="section-title">
-            <h2>Mapa territorial de intensidad productiva</h2>
-            <p>
-              Distribución estimada de la producción por principales comarcas/municipios
-              productoras.
-            </p>
-          </div>
-          <div id="map"></div>
+      <section class="card" id="mapa">
+        <div class="section-head">
+          <h2>Mapa productivo simplificado</h2>
+          <p>Distribución orientativa por zonas agrícolas limoneras de la Región de Murcia.</p>
         </div>
-        <aside class="side-panel">
-          <h3>Ficha del año <span id="panelYear">2024</span></h3>
-          <ul id="yearFacts"></ul>
-          <h4>Referencias de datos</h4>
-          <ol class="sources-list">
-            <li>
-              MAPA · Anuarios de Estadística (agricultura, cítricos, superficie y rendimiento)
-            </li>
-            <li>CREM / CARM · Estadística agraria regional y balances de cítricos</li>
-            <li>Observatorio de Precios y Mercados de la Región de Murcia</li>
-            <li>Eurostat (crop production in EU regions)</li>
-          </ol>
-          <p class="note">
-            Nota metodológica: las series del panel unifican criterios de campaña/año natural para
-            comparación temporal. Contrastar siempre con el boletín anual más reciente.
-          </p>
-        </aside>
+        <div class="zones" id="zones"></div>
       </section>
 
-      <section class="card">
-        <div class="section-title">
-          <h2>Planos estratégicos para profesionales y pequeñas explotaciones</h2>
-          <p>Escenarios orientativos de decisión basados en métricas sectoriales.</p>
+      <section class="card" id="extra">
+        <div class="section-head">
+          <h2>Sección adicional: alertas y decisiones de campaña</h2>
+          <p>Checklist operativo para pequeña y mediana explotación.</p>
         </div>
-        <div class="plans" id="plans"></div>
+        <ul class="alerts-list">
+          <li><strong>Agua:</strong> revisar dotación y coste energético semanal.</li>
+          <li><strong>Comercial:</strong> comparar precio origen con coste total por kilo (recolección + manipulado + logística).</li>
+          <li><strong>Riesgo climático:</strong> preparar protocolos de calor extremo y viento en floración/cuajado.</li>
+          <li><strong>Mercados:</strong> monitorizar competencia de terceros países en ventanas de exportación.</li>
+        </ul>
       </section>
 
-      <section class="card">
-        <div class="section-title">
-          <h2>Noticias actualizadas del sector</h2>
-          <p>
-            Titulares recientes sobre limón en Murcia y mercado citrícola español (fuentes
-            periodísticas y organismos sectoriales).
-          </p>
+      <section class="card" id="historia">
+        <div class="section-head">
+          <h2>Historia del limón en Murcia (síntesis documentada)</h2>
+          <p>Resumen elaborado a partir de fuentes institucionales y enciclopédicas.</p>
         </div>
-        <div class="news-actions">
-          <button id="refreshNews" type="button">Actualizar noticias</button>
-          <span id="newsStatus">Cargando…</span>
+        <div class="timeline">
+          <article>
+            <h3>Siglos XVIII–XIX · consolidación del regadío huertano</h3>
+            <p>La expansión de la huerta y de sistemas de riego tradicionales en la Vega del Segura sentó base para cítricos en Murcia.</p>
+          </article>
+          <article>
+            <h3>Siglo XX · especialización citrícola y organización comercial</h3>
+            <p>El limón gana peso en la estructura agraria regional, con mayor profesionalización en manipulado, exportación y cooperativismo.</p>
+          </article>
+          <article>
+            <h3>2000–actualidad · tecnificación y orientación exterior</h3>
+            <p>Riego localizado, fertirrigación, certificaciones y mayor integración en cadenas europeas; el sector afronta tensión hídrica y volatilidad de costes.</p>
+          </article>
         </div>
-        <ul id="newsList" class="news-list"></ul>
+      </section>
+
+      <section class="card" id="juegos">
+        <div class="section-head">
+          <h2>Juegos inspirados en el limón en Murcia</h2>
+          <p>Formato divulgativo para formación y dinamización de cooperativas/escuelas agrarias.</p>
+        </div>
+        <div class="games">
+          <article class="game">
+            <h3>Quiz rápido limonero</h3>
+            <p id="quizQuestion"></p>
+            <div class="game-actions">
+              <button id="quizTrue" type="button">Verdadero</button>
+              <button id="quizFalse" type="button">Falso</button>
+              <button id="quizNext" type="button">Siguiente</button>
+            </div>
+            <p id="quizFeedback" class="muted"></p>
+          </article>
+          <article class="game">
+            <h3>Simulador mini de campaña</h3>
+            <label>Riego eficiente (0–100): <input type="range" id="water" min="0" max="100" value="60" /></label>
+            <label>Control de costes (0–100): <input type="range" id="cost" min="0" max="100" value="60" /></label>
+            <label>Plan comercial (0–100): <input type="range" id="market" min="0" max="100" value="60" /></label>
+            <button type="button" id="runSim">Simular</button>
+            <p id="simResult" class="muted"></p>
+          </article>
+        </div>
+      </section>
+
+      <section class="card" id="fuentes">
+        <div class="section-head">
+          <h2>Fuentes y enlaces de referencia</h2>
+          <p>Enlaces para verificar precios, estadística agraria, información histórica y contexto sectorial.</p>
+        </div>
+        <ol class="sources-list">
+          <li><a href="https://www.mapa.gob.es/es/estadistica/temas/default.aspx" target="_blank" rel="noopener noreferrer">MAPA · Estadística agraria y anuarios</a></li>
+          <li><a href="https://www.carm.es/web/pagina?IDCONTENIDO=707&IDTIPO=100&RASTRO=c80$m22721" target="_blank" rel="noopener noreferrer">CARM · Observatorio de Precios y Mercados agrarios</a></li>
+          <li><a href="https://ec.europa.eu/eurostat" target="_blank" rel="noopener noreferrer">Eurostat · Producción agrícola regional</a></li>
+          <li><a href="https://www.ailimpo.com/" target="_blank" rel="noopener noreferrer">AILIMPO · Interprofesional del limón y pomelo</a></li>
+          <li><a href="https://es.wikipedia.org/wiki/Regi%C3%B3n_de_Murcia" target="_blank" rel="noopener noreferrer">Wikipedia · Contexto histórico y territorial de la Región de Murcia</a></li>
+          <li><a href="https://es.wikipedia.org/wiki/Citrus_%C3%97_limon" target="_blank" rel="noopener noreferrer">Wikipedia · Citrus × limon</a></li>
+        </ol>
+        <p class="note">Nota: los precios recientes del panel se muestran como serie operativa de seguimiento local; siempre contrastar con el último boletín oficial y lonjas/mercados de referencia.</p>
       </section>
     </main>
 
     <footer class="container footer">
-      <p>
-        Herramienta de apoyo a la decisión. No sustituye asesoramiento técnico, comercial ni legal.
-      </p>
+      <p>Portal de apoyo a decisiones. No sustituye asesoramiento técnico, comercial o legal.</p>
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.2/dist/chart.umd.min.js"></script>
-    <script
-      src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
-      integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
-      crossorigin=""
-    ></script>
     <script src="app.js"></script>
   </body>
 </html>
