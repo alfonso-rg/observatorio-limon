@@ -1,30 +1,36 @@
-# Portal del mercado del limón en Murcia
+# Observatorio del Limón en Murcia
 
-Portal web estático con secciones de consulta:
+Portal web multipágina (HTML/CSS/JS) sobre el mercado del limón en Murcia para uso profesional y divulgativo.
 
-- Precios recientes en ventanas tipo portal financiero (último mes / 3 meses / 1 año).
-- Evolución sectorial 2004–2024 (producción, superficie, rendimiento).
-- Mapa productivo simplificado por zonas.
-- Sección operativa de alertas de campaña.
-- Sección histórica documentada.
-- Sección de juegos (quiz + mini simulador).
+## Estructura del sitio
 
-## Ejecutar en local
+- `index.html`: portada y visión general.
+- `precios.html`: precios semanales con ventanas 1 mes / 3 meses / 1 año.
+- `evolucion.html`: evolución 2004–2024 (producción, superficie, rendimiento).
+- `mapa.html`: mapa interactivo embebido en Google Maps + zonas limoneras orientativas.
+- `historia.html`: sección enciclopédica extensa con referencias por párrafo.
+- `juegos.html`: quiz y simulador de campaña.
+- `fuentes.html`: inventario de enlaces de referencia.
+
+## Ejecución local
 
 ```bash
 python -m http.server 4173
 ```
 
-## Fuentes enlazadas en el portal
+Abrir `http://127.0.0.1:4173`.
 
-- MAPA (estadística agraria): https://www.mapa.gob.es/es/estadistica/temas/default.aspx
-- CARM Observatorio de precios: https://www.carm.es/web/pagina?IDCONTENIDO=707&IDTIPO=100&RASTRO=c80$m22721
-- Eurostat: https://ec.europa.eu/eurostat
+## Fuentes de datos y contexto
+
+- MAPA · Estadística agraria: https://www.mapa.gob.es/es/estadistica/temas/default.aspx
+- MAPA · Superficies y producciones anuales: https://www.mapa.gob.es/es/estadistica/temas/estadisticas-agrarias/agricultura/superficies-producciones-anuales-cultivos/
+- CARM · Observatorio de precios: https://www.carm.es/web/pagina?IDCONTENIDO=707&IDTIPO=100&RASTRO=c80$m22721
+- CARM / CREM: https://econet.carm.es
 - AILIMPO: https://www.ailimpo.com/
-- Wikipedia Región de Murcia: https://es.wikipedia.org/wiki/Regi%C3%B3n_de_Murcia
-- Wikipedia Citrus × limon: https://es.wikipedia.org/wiki/Citrus_%C3%97_limon
-
-## Nota de datos
-
-El panel presenta una serie operativa para seguimiento visual y comparativa temporal.
-Para decisiones contractuales/comerciales, validar siempre con boletines oficiales más recientes.
+- Eurostat: https://ec.europa.eu/eurostat
+- FAOSTAT: https://www.fao.org/faostat/
+- Google Maps: https://maps.google.com
+- Wikipedia (contexto):
+  - https://es.wikipedia.org/wiki/Citrus_%C3%97_limon
+  - https://es.wikipedia.org/wiki/Huerta_de_Murcia
+  - https://es.wikipedia.org/wiki/Regi%C3%B3n_de_Murcia

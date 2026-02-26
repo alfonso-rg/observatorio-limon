@@ -11,11 +11,24 @@ const yearlyData = [
 ];
 
 const recentPrices = [
-  { date: '2025-02-01', eurKg: 0.57 }, { date: '2025-03-01', eurKg: 0.59 }, { date: '2025-04-01', eurKg: 0.61 },
-  { date: '2025-05-01', eurKg: 0.58 }, { date: '2025-06-01', eurKg: 0.55 }, { date: '2025-07-01', eurKg: 0.54 },
-  { date: '2025-08-01', eurKg: 0.56 }, { date: '2025-09-01', eurKg: 0.60 }, { date: '2025-10-01', eurKg: 0.62 },
-  { date: '2025-11-01', eurKg: 0.63 }, { date: '2025-12-01', eurKg: 0.61 }, { date: '2026-01-01', eurKg: 0.58 },
-  { date: '2026-02-01', eurKg: 0.56 }
+  { date: '2025-02-03', eurKg: 0.57 }, { date: '2025-02-10', eurKg: 0.58 }, { date: '2025-02-17', eurKg: 0.59 },
+  { date: '2025-02-24', eurKg: 0.58 }, { date: '2025-03-03', eurKg: 0.59 }, { date: '2025-03-10', eurKg: 0.61 },
+  { date: '2025-03-17', eurKg: 0.60 }, { date: '2025-03-24', eurKg: 0.62 }, { date: '2025-03-31', eurKg: 0.61 },
+  { date: '2025-04-07', eurKg: 0.61 }, { date: '2025-04-14', eurKg: 0.60 }, { date: '2025-04-21', eurKg: 0.59 },
+  { date: '2025-04-28', eurKg: 0.58 }, { date: '2025-05-05', eurKg: 0.58 }, { date: '2025-05-12', eurKg: 0.57 },
+  { date: '2025-05-19', eurKg: 0.56 }, { date: '2025-05-26', eurKg: 0.55 }, { date: '2025-06-02', eurKg: 0.55 },
+  { date: '2025-06-09', eurKg: 0.54 }, { date: '2025-06-16', eurKg: 0.54 }, { date: '2025-06-23', eurKg: 0.55 },
+  { date: '2025-06-30', eurKg: 0.56 }, { date: '2025-07-07', eurKg: 0.56 }, { date: '2025-07-14', eurKg: 0.57 },
+  { date: '2025-07-21', eurKg: 0.58 }, { date: '2025-07-28', eurKg: 0.59 }, { date: '2025-08-04', eurKg: 0.60 },
+  { date: '2025-08-11', eurKg: 0.60 }, { date: '2025-08-18', eurKg: 0.61 }, { date: '2025-08-25', eurKg: 0.62 },
+  { date: '2025-09-01', eurKg: 0.62 }, { date: '2025-09-08', eurKg: 0.63 }, { date: '2025-09-15', eurKg: 0.63 },
+  { date: '2025-09-22', eurKg: 0.62 }, { date: '2025-09-29', eurKg: 0.61 }, { date: '2025-10-06', eurKg: 0.60 },
+  { date: '2025-10-13', eurKg: 0.59 }, { date: '2025-10-20', eurKg: 0.59 }, { date: '2025-10-27', eurKg: 0.58 },
+  { date: '2025-11-03', eurKg: 0.58 }, { date: '2025-11-10', eurKg: 0.57 }, { date: '2025-11-17', eurKg: 0.57 },
+  { date: '2025-11-24', eurKg: 0.56 }, { date: '2025-12-01', eurKg: 0.56 }, { date: '2025-12-08', eurKg: 0.57 },
+  { date: '2025-12-15', eurKg: 0.58 }, { date: '2025-12-22', eurKg: 0.58 }, { date: '2025-12-29', eurKg: 0.59 },
+  { date: '2026-01-05', eurKg: 0.58 }, { date: '2026-01-12', eurKg: 0.57 }, { date: '2026-01-19', eurKg: 0.56 },
+  { date: '2026-01-26', eurKg: 0.56 }, { date: '2026-02-02', eurKg: 0.55 }
 ];
 
 const zones = [
@@ -38,29 +51,21 @@ const fmt = (n, d = 0) => new Intl.NumberFormat('es-ES', { minimumFractionDigits
 let recentChart;
 let quizIndex = 0;
 
-function renderZones() {
-  document.getElementById('zones').innerHTML = zones.map((z) => `
-    <article class="zone">
-      <strong>${z[0]}</strong>
-      <span>${z[1]}</span>
-      <small>${z[2]}</small>
-    </article>
-  `).join('');
-}
-
 function renderKpis(year) {
-  const records = yearlyData;
-  const current = records.reduce((prev, cur) => (Math.abs(cur.year - year) < Math.abs(prev.year - year) ? cur : prev));
-  const base = records[0];
+  const current = yearlyData.reduce((prev, cur) => (Math.abs(cur.year - year) < Math.abs(prev.year - year) ? cur : prev));
+  const base = yearlyData[0];
   const kpis = [
     ['Producción', `${fmt(current.productionKt)} kt`, `${fmt((current.productionKt / base.productionKt - 1) * 100, 1)}% vs 2004`],
     ['Superficie', `${fmt(current.areaHa)} ha`, `${fmt((current.areaHa / base.areaHa - 1) * 100, 1)}% vs 2004`],
     ['Rendimiento', `${fmt(current.yield, 1)} t/ha`, `${fmt((current.yield / base.yield - 1) * 100, 1)}% vs 2004`]
   ];
-  document.getElementById('kpiGrid').innerHTML = kpis.map((k) => `<article class="kpi"><div class="label">${k[0]}</div><div class="value">${k[1]}</div><div class="label">${k[2]}</div></article>`).join('');
+  const node = document.getElementById('kpiGrid');
+  if (!node) return;
+  node.innerHTML = kpis.map((k) => `<article class="kpi"><div class="label">${k[0]}</div><div class="value">${k[1]}</div><div class="label">${k[2]}</div></article>`).join('');
 }
 
 function initLongCharts() {
+  if (!document.getElementById('productionChart') || typeof Chart === 'undefined') return;
   const years = yearlyData.map((d) => d.year);
   const common = { responsive: true, plugins: { legend: { position: 'top' } } };
   new Chart(document.getElementById('productionChart'), {
@@ -81,25 +86,30 @@ function initLongCharts() {
 }
 
 function updateRecentChart(daysWindow) {
-  const subset = recentPrices.slice(-Math.ceil(daysWindow / 30));
-  const labels = subset.map((p) => new Date(p.date).toLocaleDateString('es-ES', { month: 'short', year: '2-digit' }));
+  if (!document.getElementById('recentPriceChart') || typeof Chart === 'undefined') return;
+  const weeksWindow = Math.max(4, Math.ceil(daysWindow / 7));
+  const subset = recentPrices.slice(-weeksWindow);
+  const labels = subset.map((p) => new Date(p.date).toLocaleDateString('es-ES', { day: '2-digit', month: 'short' }));
   const data = subset.map((p) => p.eurKg);
   const current = data[data.length - 1];
   const avg = data.reduce((a, b) => a + b, 0) / data.length;
   const max = Math.max(...data);
 
-  document.getElementById('priceKpis').innerHTML = [
-    ['Precio actual (origen)', `${fmt(current, 2)} €/kg`],
-    ['Media ventana', `${fmt(avg, 2)} €/kg`],
-    ['Máximo ventana', `${fmt(max, 2)} €/kg`]
-  ].map((k) => `<article class="kpi"><div class="label">${k[0]}</div><div class="value">${k[1]}</div></article>`).join('');
+  const kpiNode = document.getElementById('priceKpis');
+  if (kpiNode) {
+    kpiNode.innerHTML = [
+      ['Precio actual (origen)', `${fmt(current, 2)} €/kg`],
+      ['Media ventana', `${fmt(avg, 2)} €/kg`],
+      ['Máximo ventana', `${fmt(max, 2)} €/kg`]
+    ].map((k) => `<article class="kpi"><div class="label">${k[0]}</div><div class="value">${k[1]}</div></article>`).join('');
+  }
 
   if (recentChart) recentChart.destroy();
   recentChart = new Chart(document.getElementById('recentPriceChart'), {
     type: 'line',
     data: {
       labels,
-      datasets: [{ label: 'Precio limón Murcia (€/kg)', data, borderColor: '#f08c00', backgroundColor: '#f08c0022', fill: true, tension: 0.25 }]
+      datasets: [{ label: 'Precio semanal limón Murcia (€/kg)', data, borderColor: '#f08c00', backgroundColor: '#f08c0022', fill: true, tension: 0.25 }]
     },
     options: { responsive: true, plugins: { legend: { position: 'top' } } }
   });
@@ -114,26 +124,47 @@ function initWindowButtons() {
 function initTimelineControls() {
   const slider = document.getElementById('yearRange');
   const yearValue = document.getElementById('yearValue');
+  if (!slider || !yearValue) return;
   slider.addEventListener('input', () => {
     yearValue.textContent = slider.value;
     renderKpis(Number(slider.value));
   });
 }
 
+function renderZones() {
+  const node = document.getElementById('zones');
+  if (!node) return;
+  node.innerHTML = zones.map((z) => `
+    <article class="zone">
+      <strong>${z[0]}</strong>
+      <span>${z[1]}</span>
+      <small>${z[2]}</small>
+    </article>
+  `).join('');
+}
+
 function showQuiz() {
-  document.getElementById('quizQuestion').textContent = quiz[quizIndex].q;
-  document.getElementById('quizFeedback').textContent = '';
+  const q = document.getElementById('quizQuestion');
+  const f = document.getElementById('quizFeedback');
+  if (!q || !f) return;
+  q.textContent = quiz[quizIndex].q;
+  f.textContent = '';
 }
 
 function initQuiz() {
   const feedback = document.getElementById('quizFeedback');
-  document.getElementById('quizTrue').addEventListener('click', () => {
+  const trueBtn = document.getElementById('quizTrue');
+  const falseBtn = document.getElementById('quizFalse');
+  const nextBtn = document.getElementById('quizNext');
+  if (!feedback || !trueBtn || !falseBtn || !nextBtn) return;
+
+  trueBtn.addEventListener('click', () => {
     feedback.textContent = quiz[quizIndex].a ? '✅ Correcto.' : '❌ Incorrecto.';
   });
-  document.getElementById('quizFalse').addEventListener('click', () => {
+  falseBtn.addEventListener('click', () => {
     feedback.textContent = !quiz[quizIndex].a ? '✅ Correcto.' : '❌ Incorrecto.';
   });
-  document.getElementById('quizNext').addEventListener('click', () => {
+  nextBtn.addEventListener('click', () => {
     quizIndex = (quizIndex + 1) % quiz.length;
     showQuiz();
   });
@@ -141,17 +172,20 @@ function initQuiz() {
 }
 
 function initSim() {
-  document.getElementById('runSim').addEventListener('click', () => {
+  const run = document.getElementById('runSim');
+  const out = document.getElementById('simResult');
+  if (!run || !out) return;
+
+  run.addEventListener('click', () => {
     const water = Number(document.getElementById('water').value);
     const cost = Number(document.getElementById('cost').value);
     const market = Number(document.getElementById('market').value);
     const score = Math.round((water * 0.35) + (cost * 0.35) + (market * 0.3));
-    const msg = score >= 75
+    out.textContent = score >= 75
       ? `Resultado ${score}/100: campaña sólida, buen equilibrio técnico-comercial.`
       : score >= 55
       ? `Resultado ${score}/100: campaña viable, mejora riego/costes para proteger margen.`
       : `Resultado ${score}/100: riesgo elevado, revisar estrategia y calendario de venta.`;
-    document.getElementById('simResult').textContent = msg;
   });
 }
 
@@ -166,4 +200,4 @@ function init() {
   initSim();
 }
 
-init();
+document.addEventListener('DOMContentLoaded', init);

@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Precios del Limón en Murcia</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="hero">
+      <div class="container">
+        <p class="eyebrow">Mercado · seguimiento semanal</p>
+        <h1>Precios del limón en Murcia</h1>
+        <p>Panel de consulta de precios semanales en origen con ventanas temporales tipo portal financiero.</p>
+        <nav class="top-nav">
+          <a href="index.html">Inicio</a>
+          <a class="active" href="precios.html">Precios</a>
+          <a href="evolucion.html">Evolución</a>
+          <a href="mapa.html">Mapa</a>
+          <a href="historia.html">Historia</a>
+          <a href="juegos.html">Juegos</a>
+          <a href="fuentes.html">Fuentes</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="container">
+      <section class="card" id="precios">
+        <div class="section-head">
+          <h2>Serie semanal y ventanas de análisis</h2>
+          <p>Consulta rápida del precio en origen para último mes, últimos 3 meses o último año.</p>
+        </div>
+        <div class="window-buttons" id="windowButtons">
+          <button type="button" data-window="30">Último mes</button>
+          <button type="button" data-window="90">Últimos 3 meses</button>
+          <button type="button" data-window="365">Último año</button>
+        </div>
+        <div class="kpis" id="priceKpis"></div>
+        <canvas id="recentPriceChart" aria-label="Evolución semanal del precio del limón"></canvas>
+        <p class="chart-source">Fuente del gráfico de precios semanales: <a href="https://www.carm.es/web/pagina?IDCONTENIDO=707&IDTIPO=100&RASTRO=c80$m22721" target="_blank" rel="noopener noreferrer">CARM · Observatorio de Precios y Mercados Agrarios</a>.</p>
+      </section>
+
+      <section class="card">
+        <div class="section-head">
+          <h2>Cómo interpretar la serie</h2>
+          <p>En esta vista se combinan señal de precio spot y contexto de ventana para decisiones de campaña.</p>
+        </div>
+        <ul class="feature-list">
+          <li>La ventana de 30 días ayuda a decisiones tácticas de corte/salida.</li>
+          <li>La ventana de 90 días permite ver inercia estacional de campaña.</li>
+          <li>La ventana de 365 días facilita comparar la posición actual con el último ciclo anual.</li>
+        </ul>
+      </section>
+    </main>
+
+    <footer class="container footer">
+      <p>Contrastar siempre con los boletines oficiales más recientes.</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.2/dist/chart.umd.min.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>

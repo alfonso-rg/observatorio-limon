@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Juegos del Limón en Murcia</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="hero">
+      <div class="container">
+        <p class="eyebrow">Formación y divulgación</p>
+        <h1>Juegos inspirados en el limón murciano</h1>
+        <p>Actividades para escuelas agrarias, cooperativas y sesiones de capacitación sectorial.</p>
+        <nav class="top-nav">
+          <a href="index.html">Inicio</a>
+          <a href="precios.html">Precios</a>
+          <a href="evolucion.html">Evolución</a>
+          <a href="mapa.html">Mapa</a>
+          <a href="historia.html">Historia</a>
+          <a class="active" href="juegos.html">Juegos</a>
+          <a href="fuentes.html">Fuentes</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="container">
+      <section class="card grid-2">
+        <article class="game">
+          <h2>Quiz rápido limonero</h2>
+          <p id="quizQuestion"></p>
+          <div class="game-actions">
+            <button id="quizTrue" type="button">Verdadero</button>
+            <button id="quizFalse" type="button">Falso</button>
+            <button id="quizNext" type="button">Siguiente</button>
+          </div>
+          <p id="quizFeedback" class="note"></p>
+        </article>
+
+        <article class="game">
+          <h2>Simulador mini de campaña</h2>
+          <label>Riego eficiente (0–100): <input type="range" id="water" min="0" max="100" value="60" /></label>
+          <label>Control de costes (0–100): <input type="range" id="cost" min="0" max="100" value="60" /></label>
+          <label>Plan comercial (0–100): <input type="range" id="market" min="0" max="100" value="60" /></label>
+          <p><button type="button" id="runSim">Simular</button></p>
+          <p id="simResult" class="note"></p>
+        </article>
+      </section>
+    </main>
+
+    <footer class="container footer">
+      <p>Herramientas educativas simplificadas.</p>
+    </footer>
+
+    <script src="app.js"></script>
+  </body>
+</html>
