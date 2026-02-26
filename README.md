@@ -40,3 +40,5 @@ Abrir `http://127.0.0.1:4173`.
   - https://es.wikipedia.org/wiki/Citrus_%C3%97_limon
   - https://es.wikipedia.org/wiki/Huerta_de_Murcia
   - https://es.wikipedia.org/wiki/Regi%C3%B3n_de_Murcia
+
+- Imágenes libres (galería/portadas visuales): https://unsplash.com/license
