@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Evolución del Sector del Limón en Murcia</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="hero">
+      <div class="container">
+        <p class="eyebrow">Análisis estructural 2004–2024</p>
+        <h1>Evolución productiva del limón en Murcia</h1>
+        <p>Seguimiento de producción, superficie y rendimiento con control temporal anual.</p>
+        <nav class="top-nav">
+          <a href="index.html">Inicio</a>
+          <a href="precios.html">Precios</a>
+          <a class="active" href="evolucion.html">Evolución</a>
+          <a href="mapa.html">Mapa</a>
+          <a href="historia.html">Historia</a>
+          <a href="juegos.html">Juegos</a>
+          <a href="fuentes.html">Fuentes</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="container">
+      <section class="card">
+        <div class="section-head">
+          <h2>KPIs y series históricas</h2>
+          <p>Selecciona el año para ver la variación de indicadores frente a 2004.</p>
+        </div>
+        <div class="controls-row">
+          <label for="yearRange">Año:</label>
+          <input type="range" id="yearRange" min="2004" max="2024" value="2024" />
+          <span id="yearValue">2024</span>
+        </div>
+        <div class="kpis" id="kpiGrid"></div>
+        <div class="grid-2">
+          <div>
+            <canvas id="productionChart"></canvas>
+            <p class="chart-source">Fuente del gráfico de producción: <a href="https://www.mapa.gob.es/es/estadistica/temas/estadisticas-agrarias/agricultura/superficies-producciones-anuales-cultivos/" target="_blank" rel="noopener noreferrer">MAPA · Superficies y producciones anuales</a>.</p>
+          </div>
+          <div>
+            <canvas id="areaChart"></canvas>
+            <p class="chart-source">Fuente del gráfico de superficie: <a href="https://www.mapa.gob.es/es/estadistica/temas/estadisticas-agrarias/agricultura/superficies-producciones-anuales-cultivos/" target="_blank" rel="noopener noreferrer">MAPA · Superficies y producciones anuales</a>.</p>
+          </div>
+          <div>
+            <canvas id="yieldChart"></canvas>
+            <p class="chart-source">Fuente del gráfico de rendimiento: <a href="https://ec.europa.eu/eurostat" target="_blank" rel="noopener noreferrer">Eurostat (contexto regional UE)</a> y <a href="https://www.mapa.gob.es/es/estadistica/temas/estadisticas-agrarias/agricultura/superficies-producciones-anuales-cultivos/" target="_blank" rel="noopener noreferrer">MAPA</a>.</p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="container footer">
+      <p>Serie orientativa de apoyo a análisis estratégico sectorial.</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.2/dist/chart.umd.min.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>

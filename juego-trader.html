@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Trader de Limón PRO</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body data-game="trader">
+    <header class="hero"><div class="container"><p class="eyebrow">Minijuego 1/6</p><h1>📈 Trader de limón PRO</h1><nav class="top-nav"><a href="juegos.html">⬅ Volver a juegos</a></nav></div></header>
+    <main class="container">
+      <section class="card game-screen">
+        <p>Semana <span id="gtWeek">1</span>/10 · Precio: <strong><span id="gtPrice">0,00</span> €/kg</strong> · Stock: <strong><span id="gtStock">120</span> t</strong></p>
+        <div class="meter"><div id="gtProgress"></div></div>
+        <div class="game-actions">
+          <button id="gtSell10" type="button">Vender 10 t</button>
+          <button id="gtSell20" type="button">Vender 20 t</button>
+          <button id="gtHold" type="button">Esperar</button>
+          <button id="gtRestart" type="button">Reiniciar</button>
+        </div>
+        <p id="gtLog" class="note"></p>
+      </section>
+    </main>
+    <script src="app.js"></script>
+  </body>
+</html>

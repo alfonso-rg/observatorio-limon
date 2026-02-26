@@ -1,0 +1,9 @@
+<!doctype html>
+<html lang="es">
+  <head><meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" /><title>Maestro del Riego</title><link rel="preconnect" href="https://fonts.googleapis.com" /><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin /><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" /><link rel="stylesheet" href="styles.css" /></head>
+  <body data-game="riego">
+    <header class="hero"><div class="container"><p class="eyebrow">Minijuego 4/6</p><h1>💧 Maestro del riego</h1><nav class="top-nav"><a href="juegos.html">⬅ Volver a juegos</a></nav></div></header>
+    <main class="container"><section class="card game-screen"><p>Semana <span id="grWeek">1</span>/10 · Clima: <strong id="grWeather">--</strong> · Agua disponible: <strong><span id="grWaterBank">100</span></strong></p><label>Asignar riego semanal (0-20): <input id="grInput" type="range" min="0" max="20" value="10" /></label><div class="game-actions"><button id="grApply" type="button">Aplicar riego</button><button id="grRestart" type="button">Reiniciar</button></div><p id="grLog" class="note"></p></section></main>
+    <script src="app.js"></script>
+  </body>
+</html>
